@@ -1,6 +1,7 @@
 "use client";
 import Image from 'next/image'
 import React, { useEffect, useRef } from 'react'
+import Button from './Button';
 
 const Hero = () => {
     const movableElementsRef = useRef<HTMLDivElement[]>([]);
@@ -28,7 +29,7 @@ const Hero = () => {
                 <h1 className='text-[36px] sm:text-[28px] md:text-[36px] lg:text-[48px] font-bold tracking-[-0.96px]'>Innovative Design</h1>
                 <h1 className='text-[36px] sm:text-[28px] md:text-[36px] lg:text-[48px] font-bold tracking-[-0.96px]'>Launches brands <span className="blockmd:hidden">to new heights</span></h1>
                 <p className='text-[24px] md:text-[36px] lg:text-[32px] tracking-[-0.64px] text-[#C5C6C7]'>Websites tailored to you</p>
-
+                <Button text="Book a call" customClasses='md:self-end' />
             </div>
             <div className="flex flex-col">
                 <Image

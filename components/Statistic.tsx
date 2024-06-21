@@ -16,10 +16,10 @@ const Statistic = ({ title, value, emoji }: { title: string, value: number, emoj
 
     return (
         <div ref={ref} className="flex flex-col items-center">
-            <data className='data' value={value}>
+            <data className='data text-[156px] lg:text-[256px]' value={value}>
                 {hasBeenInView && <CountUp end={value} duration={2} />}
             </data>
-            <div className="w-full bg-black flex justify-start relative bottom-[25%] py-4">
+            <div className="w-full bg-black flex justify-center md:justify-start relative bottom-[25%] py-4">
                 <h3 className='text-[24px] lg:text-[32px] font-bold'>{emoji}{title}</h3>
             </div>
 

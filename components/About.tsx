@@ -56,7 +56,7 @@ const About = () => {
                 </div>
             </div>
 
-            <div className="flex justify-between">
+            <div className="flex flex-col md:flex-row justify-between">
                 {STATISTICS.map(({ title, value, emoji }) => (
                     <Statistic key={title} title={title} value={value} emoji={emoji} />
                 ))}

@@ -28,7 +28,11 @@ const About = () => {
     return (
         <section className='min-h-screen text-white flex flex-col justify-around gap-8'>
             <div className="flex w-full flex-col gap-2">
-                <h2 className='text-white text-[32px] lg:text-[48px] font-bold mt-20'>Who are we?</h2>
+                <div className="flex gap-4 items-center mt-10">
+                    <div className="w-[64px] h-[1px] bg-white" />
+                    <span>ABOUT</span>
+                </div>
+                <h2 className='text-white text-[32px] lg:text-[48px] font-bold mt-10'>Who are we?</h2>
                 <div className="flex gap-4">
                     <Button text="Short" onClick={handleButtonClick} isShort={!isShort} />
                     <Button text="Long" onClick={handleButtonClick} isShort={isShort} />

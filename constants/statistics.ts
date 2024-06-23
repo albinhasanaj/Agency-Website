@@ -7,7 +7,7 @@ export const STATISTICS = [
     {
         title: "Customer Satisfaction",
         // percentage emoji
-        emoji: "📈",
+        emoji: "💯",
         value: 100,
     },
     {

@@ -2,6 +2,7 @@ import About from "@/components/About";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import RunningText from "@/components/RunningText";
+import Portfolio from "@/components/Portfolio";
 
 export default function Home() {
   return (
@@ -16,6 +17,9 @@ export default function Home() {
           <About />
         </div>
         <RunningText text="WE STRIVE TO USE THE MOST MODERN TECHNOLIGIES" direction="right" />
+        <div className="max-w-[1440px] w-full">
+          <Portfolio />
+        </div>
       </main>
     </div >
   );

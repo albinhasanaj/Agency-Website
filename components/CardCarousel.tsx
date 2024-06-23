@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { PROJECTS } from "@/constants/projects";
 import { useEffect, useState, useRef, MouseEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useSwipeable } from 'react-swipeable';
+import Link from 'next/link';
 
 const CardCarousel = () => {
     const [index, setIndex] = useState(0);
@@ -64,11 +66,18 @@ const CardCarousel = () => {
         setIndex(newIndex);
     };
 
+    const swipeHandlers = useSwipeable({
+        onSwipedLeft: () => paginate((index + 1) % PROJECTS.length, 'right'),
+        onSwipedRight: () => paginate((index - 1 + PROJECTS.length) % PROJECTS.length, 'left'),
+        trackMouse: true
+    });
+
+
     return (
         <div className="w-full flex flex-col">
-            <div className='w-full flex justify-between items-center'>
+            <div className='w-full flex justify-between items-center' {...swipeHandlers}>
                 <div className="flex-shrink-0">
-                    <Image src="/images/arrow.png" width={64} height={64} alt="Arrow" className="fade rotate-[90deg] cursor-pointer"
+                    <Image src="/images/arrow.png" width={64} height={64} alt="Arrow" className="fade rotate-[90deg] cursor-pointer hidden md:block"
                         onClick={() => paginate((index - 1 + PROJECTS.length) % PROJECTS.length, 'left')}
                     />
                 </div>
@@ -83,7 +92,7 @@ const CardCarousel = () => {
                             x: { type: "spring", stiffness: 300, damping: 30 },
                             opacity: { duration: 0.2 }
                         }}
-                        className='flex justify-center w-2/3 h-[500px] zoomed-image-container relative'
+                        className='flex justify-center w-full md:w-[85%] md-h[400px] lg:w-2/3 md:h-[500px] zoomed-image-container relative'
                         ref={imageContainerRef}
                         onMouseEnter={() => setIsHovering(true)}
                     >
@@ -92,21 +101,30 @@ const CardCarousel = () => {
                             width={1000}
                             height={500}
                             alt={PROJECTS[index].title}
-                            className="rounded-lg border-[1px] border-white zoomed-image"
+                            className="rounded-lg border-[1px] border-white zoomed-image relative object-cover"
                             layout="responsive"
                             quality={100}
                             priority={true}
                         />
+                        {/* <div className='absolute w-[100px] h-[100px] bg-orange-500 top-10 right-10' /> */}
+                        {PROJECTS[index].link && (
+                            <Link href={PROJECTS[index].link as string}
+                                target="_blank"
+                            >
+                                <Image src="/icons/live.svg" width={48} height={48} alt="Link" className="fade absolute bottom-[10%] right-[10%] cursor-pointer w-[32px] md:w-[48px] h-auto" />
+                            </Link>
+                        )
+                        }
                         <div ref={magnifierRef as any} />
                     </motion.div>
                 </AnimatePresence>
                 <div className="flex-shrink-0">
-                    <Image src="/images/arrow.png" width={64} height={64} alt="Arrow" className="fade rotate-[-90deg] cursor-pointer"
+                    <Image src="/images/arrow.png" width={64} height={64} alt="Arrow" className="fade rotate-[-90deg] cursor-pointer hidden md:block"
                         onClick={() => paginate((index + 1) % PROJECTS.length, 'right')}
                     />
                 </div>
             </div>
-            <div className='flex w-full justify-center gap-2 mt-4 animati'>
+            <div className='flex w-full justify-center gap-2 mt-4'>
                 {PROJECTS.map((project, i) => (
                     <div key={i} className={`w-2 h-2 rounded-full ${i === index ? 'bg-white' : 'bg-[#3C2685]'} cursor-pointer`} onClick={() => setIndex(i)} />
                 ))}

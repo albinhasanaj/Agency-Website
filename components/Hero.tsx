@@ -26,8 +26,8 @@ const Hero = () => {
     return (
         <section className='h-[calc(100vh-132px)] flex flex-col justify-center items-center text-white'>
             <div className="flex flex-col items-start mt-20 mb-[132px]">
-                <h1 className='text-[36px] sm:text-[28px] md:text-[36px] lg:text-[48px] font-bold tracking-[-0.96px]'>Innovative Design.</h1>
-                <h1 className='text-[36px] sm:text-[28px] md:text-[36px] lg:text-[48px] font-bold tracking-[-0.96px]'>Launches brands to new heights.</h1>
+                <h1 className='text-[36px] md:text-[36px] lg:text-[48px] font-bold tracking-[-0.96px]'>Innovative Design.</h1>
+                <h1 className='text-[36px] md:text-[36px] lg:text-[48px] font-bold tracking-[-0.96px]'>Launches brands to new heights.</h1>
                 <p className='text-[24px] md:text-[36px] lg:text-[32px] tracking-[-0.64px] text-[#C5C6C7]'>Websites tailored to you.</p>
                 <Button text="Book a call" customClasses='md:self-end' />
             </div>

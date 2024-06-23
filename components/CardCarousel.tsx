@@ -111,10 +111,9 @@ const CardCarousel = () => {
                             <Link href={PROJECTS[index].link as string}
                                 target="_blank"
                             >
-                                <Image src="/icons/live.svg" width={48} height={48} alt="Link" className="fade absolute bottom-[10%] right-[10%] cursor-pointer w-[32px] md:w-[48px] h-auto" />
+                                <Image src="/icons/live.svg" width={48} height={48} alt="Link" className="fade absolute bottom-[5%] right-[5%] cursor-pointer w-[32px] md:w-[48px] h-auto" />
                             </Link>
-                        )
-                        }
+                        )}
                         <div ref={magnifierRef as any} />
                     </motion.div>
                 </AnimatePresence>
@@ -129,10 +128,10 @@ const CardCarousel = () => {
                     <div key={i} className={`w-2 h-2 rounded-full ${i === index ? 'bg-white' : 'bg-[#3C2685]'} cursor-pointer`} onClick={() => setIndex(i)} />
                 ))}
             </div>
-            <h2 className='text-white text-[32px] lg:text-[48px] font-bold mt-10'>
+            <h2 className='text-white text-[32px] lg:text-[48px] font-bold mt-10 ml-2 md:ml-0'>
                 {PROJECTS[index].title}
             </h2>
-            <p className='text-[24px] md:text-[36px] lg:text-[32px] tracking-[-0.64px] text-[#C5C6C7]'>
+            <p className='text-[24px] md:text-[36px] lg:text-[32px] tracking-[-0.64px] text-[#C5C6C7] px-2 md:px-0'>
                 {PROJECTS[index].description}
             </p>
         </div>

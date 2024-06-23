@@ -28,16 +28,16 @@ const About = () => {
     return (
         <section className='min-h-screen text-white flex flex-col justify-around gap-8'>
             <div className="flex w-full flex-col gap-2">
-                <div className="flex gap-4 items-center mt-10">
+                <div className="flex gap-4 items-center mt-10 ml-2 md:ml-0">
                     <div className="w-[64px] h-[1px] bg-white" />
                     <span>ABOUT</span>
                 </div>
-                <h2 className='text-white text-[32px] lg:text-[48px] font-bold mt-10'>Who are we?</h2>
+                <h2 className='text-white text-[32px] lg:text-[48px] font-bold mt-10 pl-2 ml-2 md:ml-0'>Who are we?</h2>
                 <div className="flex gap-4">
                     <Button text="Short" onClick={handleButtonClick} isShort={!isShort} />
                     <Button text="Long" onClick={handleButtonClick} isShort={isShort} />
                 </div>
-                <div className='text-[24px] lg:text-[32px]' ref={typewriterRef}>
+                <div className='text-[24px] lg:text-[32px] px-2' ref={typewriterRef}>
                     {typewriterInView && (
                         <Typewriter
                             key={key}
